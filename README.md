@@ -47,18 +47,19 @@ The menu fatḥa switch updates visible letters and the current unanswered quiz 
 
 `npm run build:pages` exports the site to `out/` using the `/arabic` base path. JavaScript, CSS, home links, and saved audio use that path. Normal `npm run dev` stays at `/`.
 
-To create the requested new private repository from your Mac Terminal:
+The public repository is [Hish-L/arabic](https://github.com/Hish-L/arabic), and the site is hosted at [hish-l.github.io/arabic](https://hish-l.github.io/arabic/). GitHub Pages uses GitHub Actions as its deployment source.
+
+To publish changes:
 
 ```sh
-gh auth login
-npm run publish:github
+git add .
+git commit -m "Update Arabic learning game"
+git push origin main
 ```
 
-The helper validates tests and the static build, initializes Git, commits source and saved audio, creates a private `arabic` repository on the authenticated account, enables Pages with Actions, and pushes main. It stops if an origin remote already exists and never changes the repository to public. Generated builds, dependencies, environment files, and local ZIP archives are excluded. The original single-file prototype remains in index.html for reference; Pages deploys the exported out/ directory.
+Pushes to `main` run tests, export the site, and deploy through `.github/workflows/pages.yml`. The four recordings in `public/audio` are included in Git and deployed with the site. Generated builds, dependencies, environment files, and local ZIP archives are excluded. The original single-file prototype remains in `index.html` for reference; Pages deploys the exported `out/` directory.
 
-Pages from private repositories requires an eligible paid GitHub plan. A private source repository does not make the published Pages website private. If Pages cannot be enabled, the helper still pushes the private repository and reports the deployment blocker.
-
-Future pushes to main run tests, export the site, and deploy through `.github/workflows/pages.yml`. Commit the four files in `public/audio` so deployed playback does not rely on browser speech.
+The repository is public because the current GitHub plan requires it for Pages hosting. The `publish:github` helper is only for creating a new private repository on an account with an eligible Pages plan; it stops when an `origin` remote already exists.
 
 ## Letter forms
 
