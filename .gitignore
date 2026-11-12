@@ -1,0 +1,9 @@
+node_modules/
+.next/
+out/
+*.tsbuildinfo
+.env*
+
+# Local deliverable archives and OS metadata
+*.zip
+.DS_Store
